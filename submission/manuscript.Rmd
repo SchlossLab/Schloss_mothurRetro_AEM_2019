@@ -44,7 +44,7 @@ knitr::knit_hooks$set(inline=inline_hook)
 
 \vspace*{10mm}
 
-# Removal of rare sequences from 16S rRNA gene sequence surveys biases the interpretation of community structure data
+# Reintroducing mothur: 10 years later
 
 \vspace{35mm}
 
@@ -64,7 +64,7 @@ $1$ Department of Microbiology and Immunology, University of Michigan, Ann Arbor
 \linenumbers
 
 ## Abstract
-250 words
+75 words
 
 \newpage
 
@@ -73,41 +73,63 @@ $1$ Department of Microbiology and Immunology, University of Michigan, Ann Arbor
 
 \newpage
 
-Two elements that are held in tension in the analysis of 16S rRNA gene sequence data is how to adequately remove PCR and sequencing artifacts and decrease the granularity of the taxonomic level that is used in the analysis. Previous attempts have included screening for sequencing quality based on quality scores [Kozich/Edgar] followed by a polishing step based on the frequency of the sequences relative to similar sequences [Kozich/Edgar/DeBlur]. Other pipelines model the quality scores and types of errors to cluster sequences directly [Dada2]. As a final step, many pipelines advocate for removing rare sequences from each dataset prior to further clustering of sequences into an operational taxonomic unit (OTU) or phylogenetic group [Knight/Edgar/DeBlur/Dada2]. The assumption of this abundance-based screening approach is that rare sequences are more likely to be artifacts than more abundant sequences. Some pipelines remove all sequences that appear once (i.e. singletons) [XXXX], XXXXXX [XXXXXX], XXXXX [XXXXXXX], or XXXXXX [XXXXXX] times; only the mothur-based pipeline discourages the practice of removing rare sequences. Proponents of this approach point to the ability to reach the desired number of OTUs with data generated from sequencing mock communities when rare sequences are removed. This approach effectively fits the sequence curation approach to data generated from a phylogenetically simple community with an atypical community distribution.
-
-Sequencing of mock communities confirms that artifacts tend to be rare; however, artifacts can also be more abundant and replicate across samples. Furthermore, sequencing of real samples suggests that there are also good sequences that are rare. Ignored in the suggestion that researchers should remove rare sequences from each sample is the common result that the number of sequences generated from each sample may vary by two or three orders of magnitude. Thus a sequence that appears once in a sample with 2,000 sequences is more trustworthy than a sequence that appears once in a sample with 100,000 sequences. Removing such sequences potentially biases the community structure of the sample with fewer sequences. In the current study, I use published sequence data to investigate the effects of removing singletons and other rare sequences on downstream analysis of microbial communities.
+3000 words total
 
 
-***Results.*** 600 words
-Sample description
-* Logic for selecting studies (Table S1)
-* Distribution of sequence counts across samples in each study (Figure S1)
-
-Change in intra-sample variation with removal of rare sequences
-* Lose information within each sample as you remove sequences
-* Repeat when sequences are randomized across samples to maintain marginal sums
-
-Change in inter-sample variation with removal of rare sequences
-* Increased variation between samples as you remove sequences
-* Repeat when sequences are randomized across samples to maintain marginal sums
+Goal: describe how to eat an elephant
+mothur's origin story...
+* Curvy thingy
+* dotur/sons
+* Sogin email
+* ARB but for microbial ecology
 
 
+Big points: identify the big problems, rate limiting steps, things that were just done wrong
+* We may look back and shutter at how things were done, but we need some historical context
+* If we solved all of the problems we would never publish or move the field forward
+* The most important problem is answering your biological question
 
 
-***Conclusion.*** Removing rare sequences decreases the diversity represented by 16S rRNA gene sequence data and increases the variation between samples. Such impacts will hinder the statistical power to differentiate between treatment groups. Instead of removing rare sequences, researchers should focus on optimizing their sequence generation to minimize the amount of PCR and sequencing errors. In addition, samples should be rarefied to a common number of sequences across samples without prior culling of rare sequences. The number of artifacts is correlated to the number of sequences being considered. With this in mind, rarefaction allows one to control for uneven sampling effort and to control for the number of artifacts in the analysis.
+Competition is good and healthy
+* A lot of people have been working in this space - e.g. clustering algorithms
+* Approaches to developing software have differed (e.g. web-based (greengenes/RDP), boutique (Quince), wrappers (QIIME))
 
-Need to treat rare sequences with a grain of salt
+
+What would we have done differently?
+* Develop mothur as an R package - but tools weren't available, better graphics
+* Testing suite from the beginning
+* Better job of engaging community
+
+
+What are we proud of?
+* Open source packages
+* Development of open instructional materials
+* Data driven development of methods
+* Database independent - allows people outside of our field to use mothur
+
+
+Helped create standards
+* When something is this popular, you force people to use a certain suite of tools and methods
+
+
+The future
+* 16S rRNA gene sequencing is not dead
+* Always improving sequencing methods bring new problems
+* Larger datasets, need a replacement for naive open and closed reference clustering
+* Lingering controversies - singletons, ASVs
+
+Longterm funding
+
+
+
+
+
+
 
 
 \newpage
 
 ## Acknowledgements
-
-
-\newpage
-
-## Materials and Methods
-
 
 
 \newpage
@@ -121,10 +143,4 @@ Need to treat rare sequences with a grain of salt
 
 <!--- \includegraphics{figure_1.png} -->
 
-**Figure 1.**
-
-\newpage
-
-<!--- \includegraphics{figure_2.png} -->
-
-**Figure 2.**
+**Figure 1. Caption caption caption.** Footnotes footnotes footnotes.
