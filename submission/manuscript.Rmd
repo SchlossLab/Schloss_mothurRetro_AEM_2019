@@ -76,23 +76,35 @@ $1$ Department of Microbiology and Immunology, University of Michigan, Ann Arbor
 3000 words total
 
 
-Goal: describe how to eat an elephant
-mothur's origin story...
-* Curvy thingy
-* dotur/sons
-* Sogin email
+Few scientists set out on a nearly two decade long journey with a specific goal in mind; even fewer probably remember the day that the journey started. Often we fail to start a scientific journey because it looks too hard. Perhaps we get bogged down in all of the things that could go wrong. Perhaps we go astray from the path because we find something else that appears more interesting. Every scientist picks their own path and takes their own fork in the road. It may appear to be a random walk to an outsider. Nevertheless, for most established scientists they can tell the circuitous journey and what they have learned along the way.
+
+By no means is my personal journey over, but since 2002 I have been on a journey that I did not realize I was on. Now that the paper introducing the mothur software package is ten years old and has become the most cited paper published by *Applied and Environmental Microbiology*, it is worth stepping back and using the development of mothur as a story that likely has parallels to many other research stories that have taken time to develop.
+
+I fondly recall preparing a poster for the 2002 meeting of research groups supported by the NSF-supported Microbial Observatories Program. I wanted to triumphantly show that I had sequenced more than 600 16S rRNA gene sequences from a single 0.5-g sample of Alaskan soil. This was greater sequencing depth than anyone else had achieved for a single sample. As I was preparing the poster, I walked into the office of Jo Handelsman, my postdoctoral research advisor, and laid out the outline for the poster. She asked if I could add one of those "curvy things", a rarefaction curve, to show where I was in sampling the community. Rarefaction curves and attempts to estimate the taxonomic richness of soil had become popular because of the simple, but impactful mini-review by Jennifer Hughes and her colleagues, which introduced the field to operational taxonomic units (OTUs), rarefaction curves, and richness estimates [DOI: 10.1128/AEM.67.10.4399-4406.2001]. I do not recall whether that poster had a rarefaction curve on it, but her question has primed much of my career.
+
+***Introducing DOTUR and friends.*** When Jo asked me to generate a rarefaction curve for the poster, the request was not trivial. How would I bin the sequences into OTUs? Hughes and her colleagues did it manually for datasets that had fewer than 284 sequences. Although I could possibly do that for my 600 sequences, my goal was to generate 1,000 sequences from the sample and to repeat that sampling effort for other samples. I needed something that could be automated. Furthermore, the software that they used, EstimateS, required a series of tedious data formatting steps. I had found my first problem. How would I assign sequences to OTUs and use that data to estimate the richness and diversity of a sample? The second problem would be how could I compare the sequences found in one sample to another sample? The solution to the first problem, DOTUR (Distance-based OTUs and Richness), took us two years to develop [10.1128/AEM.71.3.1501-1506.2005]. DOTUR did two things: given a matrix describing the genetic distance between pairs of sequences, it would cluster those sequences into OTUs for any distance threshold to define the OTUs and then it would use the frequency of each OTU to calculate a variety of alpha diversity metrics. The solutions to the second problem would come from our work to develop software including S-LIBSHUFF [2004], SONS (Shared OTUs and Similarity) [2006], and TreeClimber [2006]. Around the same time, Catherine Lozupone and Rob Knight were developing their UniFrac tools to compare communities with a phylogenetic rather than OTU-based approach [PMID: 16332807; PMID: 17220268]. With these tools, the field of microbial ecology had a quantitative toolbox for describing and comparing microbial communities.
+
+It is important to remember that we knew there were many problems with 16S rRNA gene sequencing. We knew there were biases from extractions and amplification [XXXX]. We knew there were chimeras [XXXX]. Getting to the distance matrix required trimming and correcting the sequences, aligning them, and finding the most appropriate way to calculate a pairwise distance. It was also rare to have experimental replication to perform statistical tests to compare treatment groups. We frequently used a dataset comparing Scottish soils from from Alison McCaig and colleagues. This dataset consisted of two experimental groups, each replicated three times with 45 sequences in each replicate. Nevertheless, we had excuses and work arounds for these problems that served our needs. At the time, we felt that the biggest problems were how to cluster the sequences into OTUs and how to use those clusterings to test our hypotheses. Along the way we would demonstrate the utility of such tools to answer questions like where are we in the bacterial census? How many sequences would it take to see every OTU in that sample of Alaskan soil? How does the word usage of *Goodnight, Moon* compare to that of *Portrait of a Lady*? More importantly, 1,900 papers used DOTUR to facilitate their own research questions. Had we waited to solve all of the problems that plague 16S rRNA gene sequencing, we would still be waiting.
+
+As we developed these tools, I found a unique niche in microbiology. I believe that my undergraduate and graduate training as a biological engineer prepared me to think about research questions from a systems perspective, to think quantitatively, and to understand the value of using computer programs to help solve problems. As an undergraduate engineering student, I learned the Pascal programming language and promptly forgot much of it as an engineering graduate student. As a postdoc, I learned the Perl programming language to better understand how LIBSHUFF, a tool for comparing the structure of two communities, worked since it was written in Perl [DOI: 10.1128/AEM.70.9.5485-5492.2004]. After writing my own version of LIBSHUFF and seeing the speed of my collaborator's version written in C++, I converted my Perl version of DOTUR into C++. At the time, the conversion from Perl to C++ seemed like an academic exercise. My Perl version took a couple of minutes to process the final collection of 1,000 sequences and the C++ version took seconds. In hindsight, the decision to convert to C++ was critical. The ability to pick up computer languages to solve problems was enabled by my prior training. It was also a skill that was virtually unheard of in microbiology. Today researchers without the ability to program in Python or R are at a significant disadvantage.
+
+
+***Introducing mothur.*** Shortly after DOTUR was published, I received an email from Mitch Sogin asking whether DOTUR could handle more than a million sequences. Without answering his question, I asked where he found a million sequences. Little did I know that his email would represent another pivot in the development of these tools. His group would be the first to use 454 sequencing technology to generate 16S rRNA gene sequences [PMID: 16880384]. Although mothur could assign those sequences to OTUs, it was slow and required a significant amount of RAM. As I left my postdoc to start my independent career across the state from Sogin's lab at the University of Massachusetts in Amherst, my plan was to rewrite DOTUR, SONS, S-LIBSHUFF, and TreeClimber for the new world of massively parallelized sequencing. The new tool was mothur.
+
+
 * ARB but for microbial ecology
 
-
-Big points: identify the big problems, rate limiting steps, things that were just done wrong
-* We may look back and shutter at how things were done, but we need some historical context
-* If we solved all of the problems we would never publish or move the field forward
-* The most important problem is answering your biological question
-* Connect to Lenski's retrospective article
 
 Competition is good and healthy
 * A lot of people have been working in this space - e.g. clustering algorithms
 * Approaches to developing software have differed (e.g. web-based (greengenes/RDP), boutique (Quince), wrappers (QIIME))
+
+
+
+Big points: identify the big problems, rate limiting steps, things that were just done wrong
+* The most important problem is answering your biological question
+* Connect to Lenski's retrospective article
+
 
 
 What would we have done differently?
@@ -101,29 +113,46 @@ What would we have done differently?
 * Better job of engaging community
 
 
+
+Failed experiments
+* Visualization
+* GUI
+* Community-supported tool development
+
+
+
 What are we proud of?
 * Open source packages
+* Platform independent
 * Development of open instructional materials
 * Data driven development of methods
 * Database independent - allows people outside of our field to use mothur
+* Reproducibility
+
 
 
 Helped create standards
 * When something is this popular, you force people to use a certain suite of tools and methods
 
 
+
 The future
 * 16S rRNA gene sequencing is not dead
 * Always improving sequencing methods bring new problems
 * Larger datasets, need a replacement for naive open and closed reference clustering
-* Lingering controversies - singletons, ASVs
+* Lingering controversies - singletons, ASVs, contamination
+
+
 
 Longterm funding
+* The development of mothur was enabled by initial funding from a grant to Sogin from the Sloan Foundation to support his VAMPS (Visualization and Analysis of Microbial Population Structures) initiative.
+* NSF
+* NIH
+* Bootstrapping from other projects
 
 
 
-
-
+Red Queen
 
 
 
