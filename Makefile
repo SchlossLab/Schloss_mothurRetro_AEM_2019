@@ -25,9 +25,9 @@ print-%:
 
 
 submission/manuscript.pdf submission/manuscript.md submission/manuscript.tex : \
+		submission/manuscript.Rmd\
+		submission/references.bib submission/mbio.csl submission/header.tex
 #		submission/figure_1.ps
-		$(FINAL)/manuscript.Rmd\
-		$(FINAL)/references.bib $(FINAL)/mbio.csl $(FINAL)/header.tex
 	R -e 'library(rmarkdown); render("submission/manuscript.Rmd", clean=FALSE)'
 	mv submission/manuscript.knit.md submission/manuscript.md
 	rm submission/manuscript.utf8.md
