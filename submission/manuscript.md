@@ -104,19 +104,19 @@ The development of mothur would not be possible without the contributions of its
 
 \newpage
 
-<!--- \includegraphics{figure_1.png} -->
+\includegraphics{figure_1.png}
 
-**Figure 1. Caption caption caption.** Footnotes footnotes footnotes.
-
-* Timeline of mothur/QIIME/etc citations
-* Timeline of SRA deposits / 16S/microbiome in PubMed
+**Figure 1. mothur has consistently been a popular software package over the past ten years with a total of more than 8,800 citations.** Citation data taken from the Web of Science (https://www.webofscience.com) on October 1, 2019. Data from 2019 are incomplete.
 
 
-**Figure 2. Caption caption caption.** Footnotes footnotes footnotes.
+\newpage
 
-* Screenshot of mothur welcoming page
+\includegraphics{figure_2.png}
 
+**Figure 2. The mothur homepage.** From the mothur home page at www.mothur.org, users can download mothur, access a user forum, navigate a wiki with extensive documentation, join the mothur facebook group, and subscribe to the mothur mailing list.
 
-**Figure 3. Caption caption caption.** Footnotes footnotes footnotes.
+\newpage
 
-* Screenshot of mothur homepage
+\includegraphics{figure_3.png}
+
+**Figure 3. The start up window when running mothur in Mac OS X in the interactive mode.** mothur can also be run on Windows or Linux. In the interactive mode users enter individual commands at the mothur prompt. Alternatively, users may run mothur by supplying commands from the command line or using batch scripts.

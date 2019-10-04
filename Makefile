@@ -16,18 +16,28 @@ print-%:
 #
 ################################################################################
 
-#submission/figure_1.ps : results/figures/scfa_comparisons.pdf
-#	pdf2ps $^ $@
 
+figures/mothur_citations.pdf : code/plot_citations.R data/citations.tsv
+	Rscript code/plot_citations.R
 
-#%.png : %.ps
-#	convert -density 300 $^ $@
+submission/figure_1.ps : figures/mothur_citations.pdf
+	pdf2ps $^ $@
 
+submission/figure_1.png : submission/figure_1.ps
+	convert -density 300 $^ $@
+
+submission/figure_2.png : figures/homepage.png
+	cp $^ $@
+
+submission/figure_3.png : figures/mothur_welcome.png
+	cp $^ $@
 
 submission/manuscript.pdf submission/manuscript.md submission/manuscript.tex : \
 		submission/manuscript.Rmd\
-		submission/references.bib submission/mbio.csl submission/header.tex
-#		submission/figure_1.ps
+		submission/references.bib submission/mbio.csl submission/header.tex\
+		submission/figure_1.png\
+		submission/figure_2.png\
+		submission/figure_3.png
 	R -e 'library(rmarkdown); render("submission/manuscript.Rmd", clean=FALSE)'
 	mv submission/manuscript.knit.md submission/manuscript.md
 	rm submission/manuscript.utf8.md
