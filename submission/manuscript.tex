@@ -168,9 +168,9 @@ By no means is my scientific journey over, but since 2002 I have been on
 a journey that I did not realize I was on. Now that the paper
 introducing the mothur software package is ten years old and has become
 the most cited paper published by \emph{Applied and Environmental
-Microbiology} (7), it is worth stepping back and using the continued
-development of mothur as a story that has parallels to many other
-research stories.
+Microbiology} (7) (Figure 1), it is worth stepping back and using the
+continued development of mothur as a story that has parallels to many
+other research stories.
 
 I fondly recall preparing a poster for the 2002 meeting of research
 groups supported by the NSF-supported Microbial Observatories Program. I
@@ -178,58 +178,60 @@ wanted to triumphantly show that I had sequenced more than 600 16S rRNA
 gene sequences from a single 0.5-g sample of Alaskan soil. This was
 greater sequencing depth than anyone else had achieved for a single
 sample. As I was preparing the poster, I walked into the office of Jo
-Handelsman, my postdoctoral research advisor, and laid out the outline
-for the poster. She asked if I could add one of those ``curvy things'',
-a rarefaction curve, to show where I was in sampling the community.
-Rarefaction curves and attempts to estimate the taxonomic richness of
-soil had become popular because of the impactful review by Jennifer
-Hughes and her colleagues (8). Their seminal paper introduced the field
-to operational taxonomic units (OTUs), rarefaction curves, and richness
-estimates. I do not recall whether my poster had a rarefaction curve on
-it, but Jo's question primed my career.
+Handelsman, my postdoctoral research advisor at the University of
+Wisconsin, and laid out the outline for the poster. She asked if I could
+add one of those ``curvy things'', a rarefaction curve, to show where I
+was in sampling the community. Rarefaction curves and attempts to
+estimate the taxonomic richness of soil had become popular because of
+the impactful review by Jennifer Hughes and her colleagues (8). Their
+seminal paper introduced the field to operational taxonomic units
+(OTUs), rarefaction curves, and richness estimates. I do not recall
+whether my poster had a rarefaction curve on it, but Jo's question and
+that review article primed my career.
 
 \textbf{\emph{Introducing DOTUR and friends.}} When Jo asked me to
 generate a rarefaction curve for the poster, the request was not
 trivial. How would I bin the sequences into OTUs? Hughes and her
 colleagues did it manually and with fewer than 300 sequences. Although I
 could possibly do that for my 600 sequences, my goal was to generate
-1,000 sequences from the sample and to repeat that sampling effort for
+1,000 sequences from the sample and to repeat that sampling effort with
 other samples. I needed something that could be automated. Furthermore,
-the software that Hughes used, EstimateS (4), required a series of
-tedious data formatting steps to perform the analyses we were interested
-in performing. I had found my first problem. How would I assign
-sequences to OTUs and use that data to estimate the richness and
-diversity of a sample? The second problem would involve comparing the
-abundance of OTUs found in one sample to another sample. The solution to
-the first problem, DOTUR (Distance-based OTUs and Richness), took us two
-years to develop (9). DOTUR did two things: given a matrix quantifying
-the genetic distance between pairs of sequences, it would cluster those
-sequences into OTUs for any distance threshold to define the OTUs and
-then it would use the frequency of each OTU to calculate a variety of
-alpha diversity metrics. The solutions to the second problem would come
-from our work to develop software including \(\int\)-LIBSHUFF (10), SONS
-(Shared OTUs and Similarity) (11), and TreeClimber (12). Around the same
-time, Catherine Lozupone and Rob Knight were developing their UniFrac
-tools to compare communities with a phylogenetic rather than OTU-based
-approach (13, 14). With these tools, the field of microbial ecology had
-a quantitative toolbox for describing and comparing microbial
-communities. Along the way Jo and I would demonstrate the utility of
-such tools to answer questions like how many OTUs were there in that
-sample of Alaskan soil and how many sequences were needed to sample each
-of those OTUs (15)? Where were we in the global bacterial census (16)?
-How does the word usage of \emph{Goodnight, Moon} compare to that of
-\emph{Portrait of a Lady} and more importantly how is this relevant to
-microbial ecology (17)? Most edifying were the more than 2,400 papers
-that used DOTUR, SONS, TreeClimber, or \(\int\)-LIBSHUFF to facilitate
-their own research questions (Web of Science, 10/1/2019). Had we waited
-to solve all of the problems that plagued 16S rRNA gene sequencing, we
-would still be waiting.
+the software that Hughes used to build rarefaction curves, EstimateS
+(4), required a series of tedious data formatting steps to perform the
+analyses we were interested in performing. I had found my first problem.
+How would I assign sequences to OTUs and use that data to estimate the
+richness and diversity of a sample? The second problem would involve
+comparing the abundance of OTUs found in one sample to another sample.
+The solution to the first problem, DOTUR (Distance-based OTUs and
+Richness), took us two years to develop (9). DOTUR did two things: given
+a matrix quantifying the genetic distance between pairs of sequences, it
+would cluster those sequences into OTUs for any distance threshold to
+define the OTUs and then it would use the frequency of each OTU to
+calculate a variety of alpha diversity metrics. The solutions to the
+second problem would come from our work to develop software including
+\(\int\)-LIBSHUFF (10), SONS (Shared OTUs and Similarity) (11), and
+TreeClimber (12). Around the same time, Catherine Lozupone and Rob
+Knight were developing their UniFrac tools to compare communities with a
+phylogenetic rather than OTU-based approach (13, 14). With these tools,
+the field of microbial ecology had a quantitative toolbox for describing
+and comparing microbial communities. Along the way Jo and I would
+demonstrate the utility of such tools for answering questions like how
+many OTUs were there in that sample of Alaskan soil and how many
+sequences were needed to sample each of those OTUs (15)? Where were we
+in the global bacterial census (16)? How does the word usage of
+\emph{Goodnight, Moon} compare to that of \emph{Portrait of a Lady} and
+more importantly how is this relevant to microbial ecology (17)? Most
+edifying were the more than 2,400 papers that used DOTUR, SONS,
+TreeClimber, or \(\int\)-LIBSHUFF to facilitate their own research
+questions (Web of Science, October 1, 2019). Had we waited to solve all
+of the problems that plagued 16S rRNA gene sequencing, we would still be
+waiting.
 
 It is important to remember that we knew there were many problems with
 16S rRNA gene sequencing. We knew there were biases from extractions and
 amplification (18--23). We knew there were chimeras (24--27). We knew
 that bacteria varied in their \emph{rrn} copy number. Generating a
-distance matrix was a prerequisite to using my tools. This wasn't
+distance matrix was a prerequisite to using my tools. This was not
 trivial, but by cobbling together other tools it was possible. We would
 assemble, trim and correct Sanger sequence reads using Chromas or STADEN
 (28), align the sequences using ClustalW (29) or ARB (30), check for
@@ -254,11 +256,14 @@ times with 45 sequences per replicate. Although great focus has been
 placed on the depth of sampling afforded by 454 and Illumina sequencing,
 the true benefit of the modern sequencing platforms is the ability to
 affordably sequence a large number of technical and biological
-replicates. In spite of the many technical challenges, we had excuses
-and heuristics to solve problems that served our needs. It is telling
-that a recent review of ``best practices'' in generating and analyzing
-16S rRNA gene sequences shows that we still have not solved many of
-these issues and that we have even identified additional problems (35).
+replicates. In my opinion, this expansion in the number of replicates
+more than makes up for the potential limitations incurred by their
+shorter read lenght. In spite of the many technical challenges, we had
+excuses and heuristics to solve problems that served our needs. It is
+telling that a recent review of ``best practices'' in generating and
+analyzing 16S rRNA gene sequences shows that we still have not solved
+many of these issues and that we have, of course, identified additional
+problems (35).
 
 As we developed these tools, I found a unique niche in microbiology. My
 undergraduate and graduate training as a biological engineer prepared me
@@ -270,38 +275,38 @@ was a good language for teaching programming concepts, it did not catch
 on outside of the classroom. Later, I learned MATLAB. Because it was an
 expensive commercial programming environment and never caught on with
 biologists, I also forgot much of it. Even if I forgot the programming
-syntax of these languages, what these programming experiences taught me
-was the logic and structure of programming. As a postdoc, I would use
-these experiences to learn the Perl programming language to better
-understand how LIBSHUFF, a tool for comparing the structure of two
-communities, worked since it was written in Perl (36). After writing my
-own version of LIBSHUFF, \(\int\)-LIBSHUFF, and seeing the speed of the
-version written in C++ by my collaborator, Bret Larget, I converted my
-Perl version of DOTUR into C++. At the time, the conversion from Perl to
-C++ seemed like an academic exercise to learn a new language. My Perl
-version only took a minute or so to process the final collection of
-1,000 sequences and the C++ version took seconds. Was that really such a
-big difference? In hindsight, as we now process datasets with millions
-of sequences, the decision to learn C++ was critical. The ability to
-pick up computer languages to solve problems, enabled by my prior
-training in engineering, was a skill that was virtually unheard of in
-microbiology. Today, researchers without the ability to program are at a
-significant disadvantage (37).
+syntax of these languages, what learning these languages taught me was
+the logic and structure of programming. As a postdoc, I would use this
+background to learn the Perl programming language to better understand
+how LIBSHUFF (i.e.~LIBrary SHUFFle), a tool for comparing the structure
+of two communities, worked since it was written in Perl (36). After
+writing my own version of LIBSHUFF, \(\int\)-LIBSHUFF, and seeing the
+speed of the version written in C++ by my collaborator, Bret Larget, I
+converted my Perl version of DOTUR into C++. At the time, the conversion
+from Perl to C++ seemed like an academic exercise to learn a new
+language. My Perl version of DOTUR took a minute or so to process the
+final collection of 1,000 sequences and the C++ version took seconds.
+Was that really such a big difference? In hindsight, as we now process
+datasets with tens of millions of sequences, the decision to learn C++
+was critical. The ability to pick up computer languages to solve
+problems, enabled by my prior training in engineering, was a skill that
+was virtually unheard of in microbiology. Today, researchers without the
+ability to program are at a significant disadvantage (37).
 
 \textbf{\emph{Introducing mothur.}} Shortly after DOTUR was published, I
 received an email from Mitch Sogin, a scientist at the Marine Biology
 Laboratory (Woods Hole, MA), who asked whether DOTUR could handle more
 than a million sequences. Without answering his question, I asked where
 he found a million sequences. Little did I know that his email would
-represent another pivot in the development of these tools. His group
-would be the first to use 454 sequencing technology to generate 16S rRNA
-gene sequences (38). Although DOTUR could assign those sequences to
-OTUs, at the scale of millions of sequences, it was slow and required a
-significant amount of RAM. As I left my postdoc to start my independent
-career across the state from Sogin's lab at the University of
-Massachusetts in Amherst, my plan was to rewrite DOTUR, SONS,
-\(\int\)-LIBSHUFF, and TreeClimber for the new world of massively
-parallelized sequencing. The new tool would become mothur.
+represent another pivot in the development of these tools and my career.
+His group would be the first to use 454 sequencing technology to
+generate 16S rRNA gene sequences (38). Although DOTUR could assign
+millions of sequences to OTUs, it was slow and required a significant
+amount of RAM. As I left my postdoc to start my independent career
+across the state from Sogin's lab at the University of Massachusetts in
+Amherst, my plan was to rewrite DOTUR, SONS, \(\int\)-LIBSHUFF, and
+TreeClimber for the new world of massively parallelized sequencing. The
+new tool would become mothur.
 
 Milling about at a poster session at the 2007 ASM General Meeting in
 Toronto, I ran into Mitch who asked what my plans were for my new lab. I
@@ -312,14 +317,14 @@ line of code and been answering many emails from people asking for help.
 He was right, I would need an army. It would be difficult, but I needed
 to learn to let go and share the development process with someone else.
 My ``army'' ended up being Sarah Westcott who has worked on the mothur
-project from its inception. Today, mothur is over 200,000 lines of code
-and Sarah has touched or written nearly every line of it. Beyond writing
-and testing mothur's code base, she has become a conduit for many who
-are trying to learn the tools of microbial ecology. She patiently
-answers questions via email and on the package's discussion forum
-(\url{https://forum.mothur.org}). The community and I are lucky that
-Sarah has stayed with the project for more than a decade. To be honest,
-such dependency on a single person makes the project brittle. In
+project from its inception. Today, mothur is nearly 200,000 lines of
+code and Sarah has touched or written nearly every line of it. Beyond
+writing and testing mothur's code base, she has become a conduit for
+many who are trying to learn the tools of microbial ecology. She
+patiently answers questions via email and on the package's discussion
+forum (\url{https://forum.mothur.org}). The community and I are lucky
+that Sarah has stayed with the project for more than a decade. To be
+honest, such dependency on a single person makes the project brittle. In
 hindsight, it would have been better to have developed mothur with more
 of an ``army'' or team so that there is overlap in people's
 understanding of how mothur works. Although a distributed team approach
@@ -449,7 +454,8 @@ over the pipeline has made it easier for researchers to customize
 databases or adapt the pipeline to analyze non-16S rRNA gene sequence
 data. Furthermore, we have provided ample instructional materials to
 teach users how to implement robust pipelines and the theory behind each
-step. Third, as I mentioned above, there has been a plethora of methods
+step through the project's website (\url{https://www.mothur.org}).
+Third, as I mentioned above, there has been a plethora of methods
 proposed for generating amplicon sequence data, and curating, aligning,
 checking for chimeras, classifying, and clustering the data. I am proud
 of the data-driven approach we have taken to comparing these methods. A
@@ -486,8 +492,8 @@ code to GitHub with a permissive license and claim to be an open source
 software developer. Far more challenging is engaging the target
 community to make contributions to that code. Frankly, we have struggled
 to expand the number of people that make contributions to the mothur
-code base. One challenge we face is that if we looked to third parties
-to contribute code to mothur, they would need to know C++. Given the
+code base. One challenge we face is that if we looked to others to
+contribute code to mothur, they would need to know C++. Given the
 paucity of microbiologists that can program in a compiled language like
 C++, expecting that community to provide contributors who can write code
 in a syntax that prizes execution efficiency over developer efficiency
@@ -500,14 +506,14 @@ choices resulted in many tradeoffs that have impacted ease of
 installation, usability, execution speed, and flexibility. If we were
 offered funding to rewrite mothur, we would likely rewrite it as an R
 package that leaned heavily on the R language's C++ interface packages.
-Of course, such choices are always best in hindsight. Yet, when we
-started developing mothur, the ability to interface between scripting
-languages like R and Python and C++ code was not as well developed as it
-is today. For example, the modern version of the Rcpp package was first
-released in 2009 and its popularity was not immediate (66). The
-development of mothur has been a product of the environment that it was
-created in. Although these decisions have largely had positive outcomes,
-there have been tradeoffs that caused us to sacrifice other goals.
+Of course, such choices are always best in hindsight. When we started
+developing mothur, the ability to interface between scripting languages
+like R and Python and C++ code was not as well developed as it is today.
+For example, the modern version of the Rcpp package was first released
+in 2009 and its popularity was not immediate (66). The development of
+mothur has been a product of the environment that it was created in.
+Although these decisions have largely had positive outcomes, there have
+been tradeoffs that caused us to sacrifice other goals.
 
 Beyond contributing to the mothur code base, we sought out other ways to
 include the community as developers. The paper describing mothur
@@ -561,33 +567,36 @@ instructional materials that I have developed
 (\url{http://www.riffomonas.org/minimalR/}). A second experiment was the
 creation of a graphical user interface (GUI) for running mothur. Forcing
 users to interact with mothur through the command line has been a
-significant hurdle for many. Unfortunately, the development effort
-required to create and maintain a GUI is significant and there is
+significant hurdle for many (Figure 3). Unfortunately, the development
+effort required to create and maintain a GUI is significant and there is
 limited funding for such efforts. The newest version of QIIME (starting
 with version 2.0.0) has emphasized interaction with the tools through a
 GUI (68) and the related QIITA project offers a web-based GUI (69). It
 remains to be seen how this experiment will go. Another downside of
 using a GUI is that there is a risk that reproducibility will suffer if
-users do not have a mechanism to document their mouse clicks.
-Documentation of commands and parameter values is explicit in users can
-provide a file with a list of commands and the software returns a
-logfile with all commands and output recorded. Given the heightened
-focus on reproducibility in recent years, we have extended significant
-effort in developing instructional materials teaching users how to
-organize, document, and execute reproducible pipelines that allow a user
-to go from raw sequence data to a compiled manuscript (65, 70). A final
-example of a failed experiment was a collaboration with programmers
-through Google Summer of Code to develop commands in mothur that ran the
-random forest and SVM machine learning algorithms. Similar to the
-challenges of developing attractive visuals, fitting the algorithms'
-hyperparameters, testing, and deploying the resulting models require a
-significant amount of customization. Furthermore, machine learning is an
-active area of research where methods are still being developed and
-improved. Thankfully, there are numerous R and Python packages that do a
-better job of developing these models (71, 72). In each of our
-``failed'' experiments, the real problems were straying from what mothur
-does well and failing to grasp what we really wanted the innovation to
-do.
+users do not have a mechanism to document their mouse clicks. A
+significant downside for web interfaces is the frequent inability to
+document or return to old versions of software and databases. As was
+experienced with greengenes, if the website is terminated, reproducing
+old analyses becomes impossible. In mothur, documentation of commands
+and parameter values is explicit in users can provide a file with a list
+of commands and the software returns a logfile with all commands and
+output recorded. Given the heightened focus on reproducibility in recent
+years, we have extended significant effort in developing instructional
+materials teaching users how to organize, document, and execute
+reproducible pipelines that allow a user to go from raw sequence data to
+a compiled manuscript (65, 70). A final example of a failed experiment
+was a collaboration with programmers through Google Summer of Code to
+develop commands in mothur that ran the random forest and SVM machine
+learning algorithms. Similar to the challenges of developing attractive
+visuals, fitting the algorithms' hyperparameters, testing, and deploying
+the resulting models require a significant amount of customization.
+Furthermore, machine learning is an active area of research where
+methods are still being developed and improved. Thankfully, there are
+numerous R and Python packages that do a better job of developing these
+models (71, 72). In each of our ``failed'' experiments, the real
+problems were straying from what mothur does well and failing to grasp
+what we really wanted the innovation to do.
 
 \textbf{\emph{The future.}} I will continue to develop mothur for as
 long as other researchers find it useful. One challenge of such a plan
@@ -624,48 +633,49 @@ sequence data describes the taxonomic composition, while metagenomic
 sequence data tells a researcher about the functional potential and
 genetic diversity of a community. Both tools provide important
 information, but they cannot easily replace each other. Although
-metagenomic data does provide highly resolved taxonomic information, the
-limit of detection is at least an order of magnitude higher than that of
-amplicon data. For example, we analyzed 10,000 16S rRNA sequences from
-each of about 500 subjects (73). We can think of this as representing
-about 1,000,000 genome equivalents (10,000 16S rRNA genes/subject x 500
-subjects / 5 16S rRNA gene sequences/genome). Assuming a genome is 4
-Mbp, this would represent a sequencing depth of 4 Tbp. Although such a
-sequencing effort is technically possible, the cost of such an endeavor
-would be considerable and unlikely to be pursued by most researchers. We
-estimate that generating and sequencing the libraries at the University
-of Michigan sequencing core would cost approximately \$150 per library.
-The parallel 16S rRNA gene sequences data would cost approximately \$8
-per library. Furthermore, analyzing such a large dataset with an
-approach that captures the full genetic diversity of the community would
-be financially and technically prohibitive. Going forward, sequencing
-technologies will continue to evolve to capture longer and more high
-quality data and there will always be a need for characterizing the
-taxonomic diversity of microbial communities. With this in mind, there
-will always be a place for tools like mothur that can analyze amplicon
-sequence data.
+metagenomic data does provide highly resolved taxonomic information, its
+practical limit of detection is at least an order of magnitude higher
+than that of amplicon data. For example, we analyzed 10,000 16S rRNA
+sequences from each of about 500 subjects (73). We can think of this as
+representing about 1,000,000 genome equivalents (10,000 16S rRNA
+genes/subject x 500 subjects / 5 16S rRNA gene sequences/genome).
+Assuming a genome is 4 Mbp, this would represent a sequencing depth of 4
+Tbp. Although such a sequencing effort is technically possible, the cost
+of such an endeavor would be considerable and unlikely to be pursued by
+most researchers. We estimate that generating and sequencing the
+libraries at the University of Michigan sequencing core would cost
+approximately \$150 per library. The parallel 16S rRNA gene sequences
+data would cost approximately \$8 per library. Furthermore, analyzing
+such a large dataset with an approach that captures the full genetic
+diversity of the community would be financially and technically
+prohibitive. Going forward, sequencing technologies will continue to
+evolve to capture longer and more high quality data and there will
+always be a need for characterizing the taxonomic diversity of microbial
+communities. With this in mind, there will always be a place for tools
+like mothur that can analyze amplicon sequence data.
 
 Of course this does not mean that such tools will remain static. We see
 three key areas that we will continue to help the field to move forward.
 First, just as we adapted through the transitions from Sanger to 454 to
 MiSeq and PacBio sequencing platforms (60--62), we must learn whether
-data from Oxford Nanopore can be an alternative sequencing approach that
-generates sequence data that is the same quality as existing approaches;
-thus far, the approach has significant shortcomings for sequencing 16S
-rRNA gene sequences (74). As with the earlier platforms, we must better
-understand its error profile so that sequencing errors can be corrected.
-We have learned that moving forward requires that we maintain or improve
-sequence quality. No doubt, datasets and read lengths will improve, but
-these advances should not be made at the cost of data quality. Second,
-with these improvements, we will need to continue to improve our
-algorithms. We have already seen that attempts to use low quality MiSeq
-and HiSeq data caused computational problems leading to the creation of
-open and closed reference clustering methods, which attempted to
-circumvent those problems (75, 76). Unfortunately, comparative analyses
-showed that these methods fail relative to \emph{de novo} clustering
-methods (47, 48). More work is needed to improve reference-based
-clustering methods so that larger datasets can be analyzed without
-sacrificing quality. Finally, there are ongoing controversies that need
+data from Oxford Nanopore and other developing sequencing technologies
+can be an alternative sequencing approach that generates sequence data
+that is the same quality as existing approaches; thus far, the approach
+has significant shortcomings for sequencing 16S rRNA gene sequences
+(74). As with the earlier platforms, we must better understand its error
+profile so that sequencing errors can be corrected. We have learned that
+moving forward requires that we maintain or improve sequence quality. No
+doubt, datasets and read lengths will improve, but these advances should
+not be made at the cost of data quality. Second, with these
+improvements, we will need to continue to improve our algorithms. We
+have already seen that attempts to use low quality MiSeq and HiSeq data
+caused computational problems leading to the creation of open and closed
+reference clustering methods, which attempted to circumvent those
+problems (75, 76). Unfortunately, comparative analyses showed that these
+methods fail relative to \emph{de novo} clustering methods (47, 48).
+More work is needed to improve reference-based clustering methods so
+that larger datasets can be analyzed without sacrificing the quality of
+OTU assignments. Finally, there are ongoing controversies that need
 further exploration. These include the validity and utility of amplicon
 sequence variants (77), the wisdom of removing low frequency sequences
 (78), and methods of identifying and removing contaminant 16S rRNA gene
@@ -718,9 +728,9 @@ The development of mothur would not be possible without the
 contributions of its many supporters, developers, and users. Although
 not a complete list, I would be remiss if I did not express my gratitude
 to Sarah Westcott and the other members of my research group, Jo
-Handelsman, Mitch Sogin, Susan Huse, Vincent Young, Lita Proctor, Kendra
-Maas, and Marcy Balunas for their unique contributions to the continued
-development of mothur.
+Handelsman, Mitch Sogin, Susan Huse, Sarah Highlander, Vincent Young,
+Lita Proctor, Kendra Maas, and Marcy Balunas for their unique
+contributions to the continued development of mothur.
 
 \newpage
 
@@ -1332,8 +1342,9 @@ current number of citations for the year and historical trends.
 
 \textbf{Figure 2. The mothur homepage.} From the mothur home page at
 www.mothur.org, users can download mothur, access a user forum, navigate
-a wiki with extensive documentation, join the mothur facebook group, and
-subscribe to the mothur mailing list.
+a wiki with extensive documentation, find blog posts that provide
+additional examples of how to use mothur, join the mothur facebook
+group, and subscribe to the mothur mailing list.
 
 \newpage
 
