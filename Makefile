@@ -46,18 +46,18 @@ submission/manuscript.pdf submission/manuscript.md submission/manuscript.tex : \
 submission/manuscript.docx : submission/manuscript.tex
 	pandoc $< -o $@
 
+#module load perl-modules latexdiff/1.2.0
+submission/marked_up.pdf : submission/manuscript.tex
+	git cat-file -p b36048114f6:submission/manuscript.tex > submission/manuscript_old.tex
+	latexdiff submission/manuscript_old.tex submission/manuscript.tex > submission/marked_up.tex
+	pdflatex -output-directory=submission submission/marked_up.tex
+	rm submission/marked_up.aux
+	rm submission/marked_up.log
+	rm submission/marked_up.out
+	rm submission/marked_up.tex
+	rm submission/manuscript_old.tex
 
-# module load perl-modules latexdiff/1.2.0
-# submission/marked_up.pdf : submission/manuscript.tex
-# 	git cat-file -p d2a784e63f58566232ff:submission/manuscript.tex > submission/manuscript_old.tex
-# 	latexdiff submission/manuscript_old.tex submission/manuscript.tex > submission/marked_up.tex
-# 	pdflatex -output-directory=submission submission/marked_up.tex
-# 	rm submission/marked_up.aux
-# 	rm submission/marked_up.log
-# 	rm submission/marked_up.out
-# 	rm submission/marked_up.tex
-# 	rm submission/manuscript_old.tex
-#
-#
-# submission/response_to_reviewers.pdf : submission/response_to_reviewers.md submission/header.tex
-# 	pandoc -s --include-in-header=submission/header.tex -V geometry:margin=1in -o $@ $<
+
+
+submission/response_to_reviewers.pdf : submission/response_to_reviewers.md submission/header.tex
+	pandoc -s --include-in-header=submission/header.tex -V geometry:margin=1in -o $@ $<

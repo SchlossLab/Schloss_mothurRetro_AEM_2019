@@ -153,15 +153,6 @@ bring to so many other researchers.
 
 \newpage
 
-Few scientists set out on a nearly two decade-long journey with a
-specific goal in mind. Often we fail to start a scientific journey
-because it looks too hard. Perhaps we get discouraged by all of the
-things that could go wrong. Maybe we stray from the path because we find
-something that is more interesting. Every scientist picks their own path
-and takes their own forks in the road. From the outside, it may appear
-to be a random walk. Nevertheless, these meanderings are common in
-science.
-
 Looking back on scientific journeys can be instructive to others who are
 overwhelmed at the prospect of looking forward at their careers (1--5).
 By no means is my scientific journey over, but since 2002 I have been on
@@ -382,25 +373,27 @@ mothur (47, 48). QIIME is set of wrapper scripts that help users to
 transition data between independent packages. For example, with QIIME
 (through version 1.9.1), it was even possible to run mothur through
 QIIME. One can also run the \text{na\"ive} Bayesian classifier through
-QIIME using the original code developed by the RDP. This caused great
-frustration for many users because there were numerous software
-dependencies that had to be installed. Although the QIIME developers
-would go on to create virtual machines and use packaging tools to
-simplify installation, these fixes required sophistication by users who
-we knew struggled with the basics of navigating a command line. In
-contrast, when a user runs mothur, they are running mothur. The
-\text{na\"ive} Bayesian classifier code that is in mothur is a rewritten
-version of the original code. When we rewrite someone's software we do
-it with an eye to improving performance, access, and utility for non-16S
-rRNA gene sequence data. For example, while 454 data was popular,
-PyroNoise was an effective tool for denoising flowgram data (49).
-Running the original code required a large Linux computer cluster and
-knowledge of bash and Perl scripting. When we rewrote the code for
-mothur, we made it accessible to people using any operating system with
-a simple command interface (i.e.~trim.flows and shhh.flows). Our
-approach requires significant developer effort, but saves considerable
-user effort. As this benefit is multiplied across thousands of projects,
-the savings to users has been considerable.
+QIIME using the original code developed by the RDP. Structuring QIIME as
+a set of wrappers caused great frustration for many users because there
+were numerous software dependencies that had to be installed. The
+benefits included the ability for users to access to a wider set of
+tools and for developers to tie their tool into the popular software
+package. Although the QIIME developers would go on to create virtual
+machines and use packaging tools to simplify installation, these fixes
+required sophistication by users who we knew struggled with the basics
+of navigating a command line. In contrast, when a user runs mothur, they
+are running mothur. The \text{na\"ive} Bayesian classifier code that is
+in mothur is a rewritten version of the original code. When we rewrite
+someone's software we do it with an eye to improving performance,
+access, and utility for non-16S rRNA gene sequence data. For example,
+while 454 data was popular, PyroNoise was an effective tool for
+denoising flowgram data (49). Running the original code required a large
+Linux computer cluster and knowledge of bash and Perl scripting. When we
+rewrote the code for mothur, we made it accessible to people using any
+operating system with a simple command interface (i.e.~trim.flows and
+shhh.flows). Our approach requires significant developer effort, but
+saves considerable user effort. As this benefit is multiplied across
+thousands of projects, the savings to users has been considerable.
 
 Beyond the large packages like mothur and QIIME, there has been
 significant growth in standalone software tools for sequence curation
