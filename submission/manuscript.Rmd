@@ -131,19 +131,11 @@ The development of mothur would not be possible without the contributions of its
 
 \newpage
 
-\includegraphics{figure_1.png}
 
 **Figure 1. mothur has consistently been a popular software package over the past ten years with more than 8,800 citations.** Citation data taken from the Web of Science (https://www.webofscience.com) on October 1, 2019. The gray line segment depicts the projected number of citations for 2019 based on the current number of citations for the year and historical trends.
 
 
-\newpage
-
-\includegraphics{figure_2.png}
-
 **Figure 2. The mothur homepage.** From the mothur home page at www.mothur.org, users can download mothur, access a user forum, navigate a wiki with extensive documentation, find blog posts that provide additional examples of how to use mothur, join the mothur facebook group, and subscribe to the mothur mailing list.
 
-\newpage
-
-\includegraphics{figure_3.png}
 
 **Figure 3. The start up window when running mothur in Mac OS X in the interactive mode.** mothur can also be run on Windows or Linux. In the interactive mode users enter individual commands at the mothur prompt. Alternatively, users may run mothur by supplying commands from the command line or using batch scripts.
